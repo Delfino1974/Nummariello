@@ -134,6 +134,9 @@
     border-radius: 6px;
     padding: 6px 14px;
     font-weight: 700;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 10;
   }
   #gridViewTabellaOverlay {
     flex: 1;
@@ -367,6 +370,7 @@
   }
 
   function dragStart(e) {
+    if (e.target.closest('#buttonChiudiTabella')) return;
     dragging = true;
     var p = posFromEvent(e);
     var rect = containerTabella.getBoundingClientRect();
